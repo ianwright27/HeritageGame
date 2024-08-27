@@ -1,0 +1,378 @@
+/* custom */
+/*
+body {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(46, 46, 46);
+  padding: 3vmin;
+} 
+
+canvas {
+  object-fit:scale-down;
+  max-width: 100vh;
+  max-height: 100vh;
+} 
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+body{
+  background-color: rgb(46, 46, 46);
+}
+*/ 
+
+@font-face {
+  font-family: 'Nasalization';
+  src: url('./nasalization-rg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html,body {
+  margin: 0;
+  padding: 0;
+  background: #1a1818; 
+  background: linear-gradient(90deg, rgba(8,6,37,1) 0%, rgba(106,31,129,1) 50%, rgba(13,12,50,1) 100%);
+  cursor: url('./custom-cursor.png') !important; 
+}
+main {
+  text-align: center;
+  width: 33%;
+}
+canvas {
+display: block; 
+border-left: 3px solid rgb(171, 152, 31);  
+border-right: 3px solid rgb(171, 152, 31);  
+}
+main {
+align-items: center;
+display: flex;
+height: 100vh; 
+justify-content: center;
+}
+main canvas { 
+height: auto !important;
+width: auto !important;
+max-width: 100%;
+max-height: 100%;
+display: inline-block; 
+margin: 0 auto;
+vertical-align: middle;
+touch-action: none; 
+}
+body.code {
+  background: #222222;
+}
+body.code main {
+  display: none;
+}
+body:not(.code) #code {
+  display: none;
+}
+#code {
+  color: #eeeeee;
+  font-family: monospace;
+  padding: 2em;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 10px;
+  overflow: hidden auto;
+  text-overflow: ellipsis;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+.screen-elements {
+  display: flex; 
+}
+.ui-btns-one, .ui-btns-two {
+  /* position: relative;  */
+  /* padding: 20px;  */ 
+  width: 33%; 
+  background-color: "transparent";
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}  
+
+
+/* progress bar */ 
+.meter {
+  width: 100px; 
+  box-sizing: content-box;
+  height: 20px; /* Can be anything */
+  position: relative;
+  margin-bottom: 60px; /* Just for demo spacing */
+  background: transparent;
+  border: 2px solid rgb(0, 128, 21); 
+  border-radius: 25px;
+  padding: 10px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: rgb(43, 194, 83); 
+  background-image: linear-gradient(center bottom,rgb(43, 194, 83) 37%,rgb(84, 240, 84) 69%); 
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.meter > span:after,
+.animate > span > span {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+
+.animate > span:after {
+  display: none;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+.orange > span {
+  background-image: linear-gradient(#f1a165, #f36d0a);
+}
+
+.red > span {
+  background-image: linear-gradient(#f0a3a3, #f42323);
+}
+
+.nostripes > span > span,
+.nostripes > span::after {
+  background-image: none;
+} 
+/* end of progress bar */
+
+
+
+.ui-btns-two {
+  flex-direction: column;
+} 
+.reveal-container {
+  border: 1px solid purple; 
+  padding: 20px; 
+  border-radius: 20px; 
+  margin: 10px; 
+  display: none; 
+  flex-direction: column; 
+  align-items: center; 
+  box-shadow: 0 1px 1px rgba(0,0,0,.16), 0 1px 1px rgba(81, 2, 252, 0.4),
+              inset 0 -2px 5px 1px rgb(251, 0, 255),
+              inset 0 -1px 1px 3px rgb(92, 7, 61); 
+  /* display: flex;  */
+}
+#revealBtn, #revealBtnTwo {
+  display: block; 
+}
+#scoreValue { 
+  width: 100%; 
+  padding: 5px; 
+  color: #fff; 
+  font-family: 'Nasalization'; 
+  text-align: center;
+  font-size: 30px;
+} 
+
+#attempts {
+  width: 100%; 
+  padding: 5px; 
+  color: #fff; 
+  font-family: 'Nasalization'; 
+  text-align: center;
+  font-size: 30px;
+} 
+#attemptsValue {
+  color:rgb(231, 176, 58); 
+} 
+.tips { 
+  position: relative;
+  margin-top: 40px; 
+  border: 2px solid #fff; 
+  color: #fff; 
+  font-family: 'Nasalization'; 
+  font-size: 12px;
+  border-radius: 10px; 
+  padding: 10px; 
+} 
+.tips .close {
+  position: absolute; 
+  right: 20px; 
+  top: 10px; 
+  cursor: pointer; 
+}
+.tips p { 
+  margin-top: 10px; 
+  text-align: center;
+} 
+.tips p a {
+  color: aqua;
+}
+.modal {
+  position: absolute; 
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-family: 'Nasalization'; 
+  color: #fff; 
+  padding: 20px; 
+  box-shadow: 0 3px 3px rgba(0,0,0,.16), 0 3px 3px rgba(110,80,20,.4),
+              inset 0 -2px 5px 1px rgb(139, 15, 8),
+              inset 0 -1px 1px 3px rgb(164, 158, 133); 
+  background: linear-gradient(90deg, rgba(117,4,4,1) 0%, rgba(253,29,29,1) 46%, rgba(144,27,27,1) 100%);
+  border: 1px solid #fff; 
+  border-radius: 10px; 
+  z-index: 9999;
+} 
+#gameModalOne {
+  width: 450px; 
+  /* display: block; */
+}
+#gameModalTwo { 
+  width: 450px; 
+  display: none; 
+  box-shadow: 0 3px 3px rgba(0,0,0,.16), 0 3px 3px rgba(110,80,20,.4),
+              inset 0 -2px 5px 1px rgb(8, 139, 17),
+              inset 0 -1px 1px 3px rgb(210, 210, 209); 
+  background: linear-gradient(90deg, rgb(4, 117, 36) 0%, rgb(66, 140, 44) 46%, rgb(11, 109, 36) 100%) !important;
+}
+.closeBtn {
+  position: absolute; 
+  right: 5px; 
+  top: 1px; 
+  background: transparent; 
+  padding: 10px; 
+  font-family: 'Nasalization'; 
+} 
+.closeBtn:hover {
+  cursor: pointer; 
+  color: #b0b0b0; 
+} 
+
+.golden-btn + .golden-btn { margin-top: 1em; }
+
+.golden-btn {
+  display: inline-block; 
+  margin-right: 10px; 
+  outline: none;
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: none;
+  border-radius: .3em; 
+  font-family: 'Nasalization'; 
+  height: 2.75em;
+  line-height: 2.5em;
+  text-transform: uppercase;
+  padding: 0 1em;
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+              inset 0 -2px 5px 1px rgba(139,66,8,1),
+              inset 0 -1px 1px 3px rgba(250,227,133,1);
+  background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  border: 1px solid #a55d07;
+  color: rgb(120,50,5);
+  text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  background-size: 100% 100%;
+  background-position:center;
+} 
+.faster {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(110, 80, 20, .4), inset 0 -2px 5px 1px rgb(83 7 103), inset 0 -1px 1px 3px rgb(120 41 173) !important;
+    background-image: linear-gradient(160deg, #4407a5, #6e3c90, #cd28dc, #470d80, #4a0a5f) !important;
+    border: 1px solid #7151c9 !important;
+    color: rgb(255 255 255) !important;
+    text-shadow: 0 2px 2px rgb(189 133 250) !important; 
+}
+.greener {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(110, 80, 20, .4), inset 0 -2px 5px 1px rgb(7, 172, 38), inset 0 -1px 1px 3px rgb(21, 201, 90) !important;
+    background-image: linear-gradient(160deg, #07a50f, #397f0b, #2fea09, #0e9927, #0d5f0a) !important;
+    border: 1px solid #7151c9 !important;
+    color: rgb(255 255 255) !important;
+    text-shadow: 0 2px 2px rgb(189 133 250) !important; 
+}
+.golden-btn:focus,
+.golden-btn:hover {
+  background-size: 150% 150%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23),
+                inset 0 -2px 5px 1px #b17d10,
+                inset 0 -1px 1px 3px rgba(250,227,133,1);
+  border: 1px solid rgba(165,93,7,.6);
+  color: rgba(120,50,5,.8);
+}
+.golden-btn:active {
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+              inset 0 -2px 5px 1px #6f4f0a,
+                inset 0 -1px 1px 3px rgb(181, 163, 90);
+} 
+@keyframes rotate3d {
+  from {
+      transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+      transform: rotateY(360deg) rotateY(360deg);
+  }
+}
+.rotate3d {
+  animation: rotate3d 15s linear infinite; /* Apply continuous rotation */
+  transform-style: preserve-3d;
+} 
+.rotate3d:hover {
+  animation: none; 
+  transform: rotateX(0deg) rotateY(0deg); /* Reset to the original state */
+}

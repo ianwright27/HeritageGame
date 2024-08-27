@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>Heritage Web Game | A web-based game that allows players to craft decent beadwork that imitate the original artform common in African traditions.</title> 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  </head>
+  <body style='margin:0' id="main"> 
+       
+    <!-- ui elements --> 
+
+    <!-- error -->
+    <div class="modal parent" id="gameModal"> 
+      <div class="closeBtn">x</div>
+      <p>Maximum attempts reached! Try a new game. </p> 
+      <button class="golden-btn newGame" id="newGameOne">New Game</button>
+    </div> 
+    
+    <div class="modal parent" id="gameModalOne"> 
+      <div class="closeBtn">x</div>
+      <p>Oops! Better luck next time!</p>
+      <p id="randomQuotes"></p> 
+      <br>
+      <button class="golden-btn newGame" id="newGameTwo">Try Again</button>
+    </div> 
+    
+    <!-- success -->
+    <div class="modal parent" id="gameModalTwo"> 
+      <div class="closeBtn">x</div>
+      <p>Great Job! Looks like you got amazing bead-crafting skills! 😎 You can now Reveal the full beadwork. <br> Keep it up 🥳</p> 
+      <button class="golden-btn newGame"  id="newGameThree">New Game</button>
+    </div>
+
+
+    <div class="screen-elements">
+      <!-- left UI --> 
+      <div class="ui-btns-one">
+        <p id="scoreValue">0%</p>  
+        <!-- progress bar --> 
+        <div class="meter">
+          <span style="width: 29%"></span>
+        </div>
+        <!-- attempts --> 
+        <p id="attempts"><span id="attemptsValue">0</span>/20</p> 
+        <div class="tips"> 
+          <div class="closeBtn">x</div>
+          <p>Tips</p>
+          <p>(1) Click on the canvas to play.</p> 
+          <p>(2) Avoid weaving shorter beads.</p> 
+          <br>
+          <p>This is not just a game about beads, visit <a href="https://codecanvas.art/drop/D7brx6P5ASv6aYrgg7oMneNmT7y81Zqczwq1i7ksXKcv">Heritage</a>  to learn more about the work behind this game and why it is important to our society.</p>
+        </div>
+      </div> 
+      <!-- canvas -->
+      <main>
+      </main>  
+      <!-- right UI --> 
+      <div class="ui-btns-two"> 
+        <button id="newGameFour" class="golden-btn newGame">New Game</button> 
+        <button id="saveProgress" class="golden-btn greener">Download</button> 
+        <div class="reveal-container">
+          <button id="revealBtn" class="golden-btn rotate3d">reveal</button> 
+          <button id="revealBtnTwo" class="golden-btn faster">reveal faster 🚀</button> 
+        </div>
+      </div> 
+    </div>
+    
+
+    <p id="code"></p>
+    <script src="p5.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="seedrandom.min.js"></script>
+    <script src="all.js"></script> 
+    <!-- <script src="color_test.js"></script>
+    <script src="lib.js"></script>
+    <script src="classes.js"></script>
+    <script src="sketch.js"></script> -->
+    <script>
+    </script>
+ 
+  </body>
+</html>

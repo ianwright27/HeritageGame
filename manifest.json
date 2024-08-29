@@ -1,0 +1,22 @@
+{
+    "name": "Heritage Beadwork Game",
+    "short_name": "Heritage",
+    "description": "A web-based game that allows users to craft amazing beadwork on a canvas.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fcbe03",
+    "theme_color": "#fcbe03",
+    "icons": [
+      {
+        "src": "logo.png",
+        "sizes": "1080x1080",
+        "type": "image/png"
+      },
+      {
+        "src": "logo.png",
+        "sizes": "1080x1080",
+        "type": "image/png"
+      }
+    ]
+  }
+  
